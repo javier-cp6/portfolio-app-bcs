@@ -1,3 +1,4 @@
+import CharacterList from "./components/CharacterList";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
     //   </header>
     // </div>
     <>
-      hey ho, let's go
+      <CharacterList />
     </>
   );
 }
