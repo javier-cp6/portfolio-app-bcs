@@ -1,4 +1,12 @@
+import './styles.css';
+// import "bootstrap/dist/css/bootstrap.min.css"
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import CharacterList from "./components/CharacterList";
+import NavigationBar from "./components/NavigationBar";
+import HomeView from './views/HomeView';
+
 
 function App() {
   return (
@@ -19,7 +27,8 @@ function App() {
     //   </header>
     // </div>
     <>
-      <CharacterList />
+      <NavigationBar />
+      <HomeView />
     </>
   );
 }

@@ -17,11 +17,11 @@ export default function CharacterList() {
     getCharactersData()
   }, [])
 
-  if(characters.lenght === 0) {
-    return (
-      <div>Loading...</div>
-    )
-  }
+  // if(characters.lenght === 0) {
+  //   return (
+  //     <div>Loading...</div>
+  //   )
+  // }
 
   return (
     <div>
