@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import logo from '../img/logo.jpg'
+
 export default function HomeView() {
   return (
     <>
@@ -9,7 +11,7 @@ export default function HomeView() {
           <div>
             <div className='intro-title'>PHOTOGRAPHER</div>
             <p>Lorem ipsum dolor, sit amet consectetur. Adipisci quo quia dolorum animi hic maxime est provident consequatur cumque est provident consequatur!</p>
-            <div><i className="fa-solid fa-circle-arrow-right btn-intro"></i></div>
+            <Link to='/'><i className="fa-solid fa-circle-arrow-right btn-intro"></i></Link>
           </div>
         </div>
       </header>
