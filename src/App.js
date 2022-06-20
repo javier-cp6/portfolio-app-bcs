@@ -27,8 +27,16 @@ function App() {
     //   </header>
     // </div>
     <>
-      <NavigationBar />
-      <HomeView />
+      <Router>
+        <NavigationBar />
+        <HomeView />
+        {/* <div>
+          <Routes>
+            <Route path='/' element={<HomeView/>}/>
+          </Routes>
+        </div> */}
+
+      </Router>
     </>
   );
 }
