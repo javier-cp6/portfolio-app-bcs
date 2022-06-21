@@ -88,7 +88,7 @@
   margin-bottom: 20px;
   background-color: transparent;
 }
-.name-shadow { 
+.name-shadow {
   height: 100%;
   width: 60%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px -120px 36px -28px inset;
@@ -187,3 +187,74 @@
 .card-img:hover {
   filter: grayscale(0);
 }
+
+/* Slider */
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* margin: 0px auto; */
+  /* left: 50%;
+  margin-left: -50%; */
+  background-color: rgba(0, 0, 0, 0.90);
+  padding: 10px 60px 10px 60px;
+  z-index: 200;
+}
+
+.slider-container {
+  max-width: 800px;
+  /* height: 500px; */
+  height: 100%;
+  margin: 0px auto;
+  position: relative;
+  overflow: hidden;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  background-color: transparent;
+}
+@media screen and (max-width: 700px){
+  .slider-container {
+    /* margin: 100px 10px 0; */
+  }
+}
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity ease-in-out 1s;
+
+  background-color: transparent;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  background-color: transparent;
+}
+.active-anim {
+  opacity: 1;
+}
+.btn-slide {
+  top: 50%;
+  transform: translateY(-60%);
+  font-size: 30px;
+  background-color: transparent;
+  border-bottom: none;
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  opacity: .9;
+}
+.next {
+  right: 20px;
+}
+.prev {
+  left: 20px;
+}
+.btn-slide i{
+  background-color: transparent;
+}
+
