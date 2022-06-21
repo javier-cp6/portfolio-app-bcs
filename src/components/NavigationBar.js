@@ -7,7 +7,7 @@ export default function NavigationBar() {
       <ul className="main-menu">
         <li><Link to="/">HOME</Link></li>
         <li><Link to="/">SERVICES</Link></li>
-        <li><Link to="/">PROJECTS</Link></li>
+        <li><Link to="/projects">PROJECTS</Link></li>
         <li><Link to="/">TESTIMONIALS</Link></li>
         <li><Link to="/">BLOG</Link></li>
       </ul>

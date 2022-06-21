@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CharacterList from "./components/CharacterList";
 import NavigationBar from "./components/NavigationBar";
 import HomeView from './views/HomeView';
+import ProjectView from './views/ProjectView';
 
 
 function App() {
@@ -29,13 +30,10 @@ function App() {
     <>
       <Router>
         <NavigationBar />
-        <HomeView />
-        {/* <div>
-          <Routes>
-            <Route path='/' element={<HomeView/>}/>
-          </Routes>
-        </div> */}
-
+        <Routes>
+          <Route path='/' element={<HomeView />} />
+          <Route path='/projects' element={<ProjectView />} />
+        </Routes>
       </Router>
     </>
   );
