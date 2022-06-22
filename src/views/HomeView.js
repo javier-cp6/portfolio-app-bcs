@@ -11,7 +11,7 @@ export default function HomeView() {
           <div>
             <div className='intro-title'>PHOTOGRAPHER</div>
             <p>Lorem ipsum dolor, sit amet consectetur. Adipisci quo quia dolorum animi hic maxime est provident consequatur cumque est provident consequatur!</p>
-            <Link to='/'><i className="fa-solid fa-circle-arrow-right btn-intro"></i></Link>
+            <Link to='/projects'><i className="fa-solid fa-circle-arrow-right btn-intro"></i></Link>
           </div>
         </div>
       </header>

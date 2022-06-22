@@ -4,19 +4,30 @@ import Slider from "../components/Slider"
 
 export default function ProjectView() {
   const [ characters, setCharacters ] = useState([])
+  const [ isSliderShown, setIsSliderShown] = useState(false)
+  const [slideIndex, setSlideIndex] = useState(1)
 
-  // const [ isNavBarShown, setIsNavBarShown] = useState(false)
+  const handleClick = (i) => {
+    setIsSliderShown(current => !current);
+    setSlideIndex(i + 1)
+  }
 
-  // const handleClick = event => {
-  //   setIsNavBarShown(current => !current);
-  // }
+  useEffect(()=> {
+    if (isSliderShown) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100%";
+    }
+    if (!isSliderShown) {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  },[isSliderShown])
 
   const getCharactersData = async() => {
     try {
       const charactersArr = await getCharacters()
       const charactersArrFiltered = charactersArr.filter((item) => item.category.includes("Better Call Saul"))
       setCharacters(charactersArrFiltered)
-      
     } catch (error) {
       throw error
     }
@@ -26,16 +37,16 @@ export default function ProjectView() {
   },[])
 
   return (
-    // <div>
-    //   <div className="characters-container">
-    //     {characters.map((item, i) => (
-    //       <div className="character-card" key={i}>
-    //         <img className="card-img" src={item.img}></img>
-    //         <div>{`${item.name} - "${item.nickname}"`}</div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-    <Slider />
+    <>
+      <Slider characters={characters} handleClick={handleClick} isSliderShown={isSliderShown} setIsSliderShown={setIsSliderShown} slideIndex={slideIndex} setSlideIndex={setSlideIndex}/>
+      <div className="characters-container">
+        {characters.map((item, i) => (
+          <div className="character-card" key={i}>
+            <img className="card-img" src={item.img} onClick={() => {handleClick(i)}}></img>
+            <div>{`${item.name} - "${item.nickname}"`}</div>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }

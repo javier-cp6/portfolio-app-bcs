@@ -1,9 +1,4 @@
-import { useState, useEffect } from "react";
-import { getCharacters } from "../services/characterService";
-
-export default function Slider() {
-  const [ characters, setCharacters ] = useState([])
-  const [slideIndex, setSlideIndex] = useState(1)
+export default function Slider({characters, isSliderShown, setIsSliderShown, slideIndex, setSlideIndex}) {
 
   const nextSlide = () => {
     if(slideIndex !== characters.length){
@@ -23,24 +18,11 @@ export default function Slider() {
     }
   }
 
-  const moveDot = index => {
-    setSlideIndex(index)
+  const closeSlide = () => {
+    setIsSliderShown(current => !current)
   }
 
-
-  const getCharactersData = async() => {
-    try {
-      const charactersArr = await getCharacters()
-      const charactersArrFiltered = charactersArr.filter((item) => item.category.includes("Better Call Saul"))
-      setCharacters(charactersArrFiltered)
-      
-    } catch (error) {
-      throw error
-    }
-  }
-  useEffect(() => {
-    getCharactersData()
-  },[])
+  if(isSliderShown === false) return 
 
   return (
     <div className="slider">
@@ -50,6 +32,8 @@ export default function Slider() {
             <img src={item.img} />
           </div>
         ))}
+        
+        <button className="btn-slide close" onClick={closeSlide}><i className="fa-solid fa-xmark"></i></button>
         <button className="btn-slide next" onClick={nextSlide}><i className="fa-solid fa-circle-arrow-right"></i></button>
         <button className="btn-slide prev" onClick={prevSlide}><i className="fa-solid fa-circle-arrow-left"></i></button>
       </div>
