@@ -48,7 +48,6 @@
   font-weight:600;
   text-decoration: none;
 }
-
 .nav-wrapper a{
   position: relative;
 }
@@ -68,6 +67,14 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+/* .nav-wrapper a:active {
+  color:red;
+} */
+.nav-wrapper .link-active a:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 
 /* HomeView */
 .intro-container {
