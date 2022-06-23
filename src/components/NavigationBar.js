@@ -15,16 +15,16 @@ export default function NavigationBar() {
     <div className="nav-wrapper">
       <ul className="main-menu">
         <li className={splitLocation[1] === "" ? "link-active": "" }><Link to="/">HOME</Link></li>
-        <li className={splitLocation[1] === "services" ? "link-active": "" }><Link to="/">SERVICES</Link></li>
         <li className={splitLocation[1] === "projects" ? "link-active": "" }><Link to="/projects">PROJECTS</Link></li>
-        <li className={splitLocation[1] === "testimonials" ? "link-active": "" }><Link to="/">TESTIMONIALS</Link></li>
-        <li className={splitLocation[1] === "blog" ? "link-active": "" }><Link to="/">BLOG</Link></li>
+        <li className={splitLocation[1] === "services" ? "link-active": "" }><Link to="/services">SERVICES</Link></li>
+        <li className={splitLocation[1] === "testimonials" ? "link-active": "" }><Link to="/testimonials">TESTIMONIALS</Link></li>
+        <li className={splitLocation[1] === "blog" ? "link-active": "" }><Link to="/blog">BLOG</Link></li>
       </ul>
 
       <ul className="contact-menu">
-        <li className={splitLocation[1] === "about" ? "link-active": "" }><Link to="/">ABOUT</Link></li>
-        <li className={splitLocation[1] === "shop" ? "link-active": "" }><Link to="/">SHOP</Link></li>
-        <li className={splitLocation[1] === "contact" ? "link-active": "" }><Link to="/">CONTACT</Link></li>
+        <li className={splitLocation[1] === "about" ? "link-active": "" }><Link to="/about">ABOUT</Link></li>
+        <li className={splitLocation[1] === "shop" ? "link-active": "" }><Link to="/shop">SHOP</Link></li>
+        <li className={splitLocation[1] === "contact" ? "link-active": "" }><Link to="/contact">CONTACT</Link></li>
       </ul>
     </div>
   )

@@ -7,6 +7,7 @@ import CharacterList from "./components/CharacterList";
 import NavigationBar from "./components/NavigationBar";
 import HomeView from './views/HomeView';
 import ProjectView from './views/ProjectView';
+import SwiperCSSExample from './components/SwiperCSSExample';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomeView />} />
           <Route path='/projects' element={<ProjectView />} />
+          <Route path='/services' element={<SwiperCSSExample />} />
         </Routes>
       </Router>
     </>

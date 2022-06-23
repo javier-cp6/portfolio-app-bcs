@@ -28,7 +28,7 @@ export default function Slider({characters, isSliderShown, setIsSliderShown, sli
     <div className="slider">
       <div className="slider-container">
         {characters.map((item, i) => (
-          <div key={i} className={slideIndex === i + 1 ? "slide active-anim" : "slide"}>
+          <div key={i} className={slideIndex === i + 1 ? "slide active-slide" : "slide"}>
             <img src={item.img} />
           </div>
         ))}
