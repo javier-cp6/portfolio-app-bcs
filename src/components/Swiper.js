@@ -1,11 +1,11 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Swiper({characters, isSliderShown, setIsSliderShown, slideIndex, setSlideIndex}) {
   const myRef = useRef([])
 
   const scrollToSlide = (i) => {
     myRef.current[i].scrollIntoView(
-      { behavior: 'smooth', block: 'start' }
+      // { behavior: 'smooth', block: 'start' }
     )
   }
 
@@ -16,12 +16,12 @@ export default function Swiper({characters, isSliderShown, setIsSliderShown, sli
           { behavior: 'smooth', block: 'start' }
         )
     } 
-    else if (slideIndex === characters.length - 1){
-        setSlideIndex(0)
-        myRef.current[0].scrollIntoView(
-          { behavior: 'smooth', block: 'start' }
-        )
-    }
+    // else if (slideIndex === characters.length - 1){
+    //     setSlideIndex(0)
+    //     myRef.current[0].scrollIntoView(
+    //       { behavior: 'smooth', block: 'start' }
+    //     )
+    // }
   }
 
   const prevSlide = () => {
@@ -31,26 +31,30 @@ export default function Swiper({characters, isSliderShown, setIsSliderShown, sli
           { behavior: 'smooth', block: 'start' }
         )
     }
-    else if (slideIndex === 0){
-        setSlideIndex(characters.length - 1)
-        myRef.current[characters.length - 1].scrollIntoView(
-          { behavior: 'smooth', block: 'start' }
-        )
-    }
+    // else if (slideIndex === 0){
+    //     setSlideIndex(characters.length - 1)
+    //     myRef.current[characters.length - 1].scrollIntoView(
+    //       { behavior: 'smooth', block: 'start' }
+    //     )
+    // }
   }
 
   const closeSlide = () => {
     setIsSliderShown(current => !current)
   }
 
-  if(isSliderShown === false) return 
+  useEffect(()=> {
+    // console.log(myRef.current)
+    if(myRef.current[slideIndex] != null) {
+      scrollToSlide(slideIndex)
+    }
+  })
 
+  if(isSliderShown === false) return 
+  
   return (
     <div className="swiper">
       <div className="swiper-container">
-        <a onClick={() => {scrollToSlide(0)}}>1</a>
-        <a onClick={() => {scrollToSlide(1)}}>2</a>
-
         <div className="slides">
           {characters.map((item, i) => (
             // <div id={`slide-${i+1}`}>
