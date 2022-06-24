@@ -24,7 +24,7 @@
 import { useState, useEffect, useRef } from "react"
 import { getCharacters } from "../services/characterService"
 
-export default function ProjectView() {
+export default function SwiperCSSExample() {
   const [ characters, setCharacters ] = useState([])
   const [ isSliderShown, setIsSliderShown] = useState(false)
   const [slideIndex, setSlideIndex] = useState(1)
@@ -37,8 +37,8 @@ export default function ProjectView() {
   const myRef = useRef([])
 
   const scrollToSlide = (i) => {
-    console.log(i)
-    console.log(myRef)
+    // console.log(i)
+    // console.log(myRef)
     myRef.current[i].scrollIntoView(
       { behavior: 'smooth', block: 'start' }
     )
@@ -81,7 +81,7 @@ export default function ProjectView() {
           {characters.map((item, i) => (
             // <div id={`slide-${i+1}`}>
             <div ref={(node) => {
-              console.log(node)
+              // console.log(node)
               myRef.current[i] = node
               }} key={i}>
               <img src={item.img}/>

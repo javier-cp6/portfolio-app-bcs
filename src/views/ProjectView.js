@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
 import { getCharacters } from "../services/characterService"
 import Slider from "../components/Slider"
+import Swiper from "../components/Swiper";
 
 export default function ProjectView() {
   const [ characters, setCharacters ] = useState([])
   const [ isSliderShown, setIsSliderShown] = useState(false)
-  const [slideIndex, setSlideIndex] = useState(1)
+  const [slideIndex, setSlideIndex] = useState(0)
 
   const handleClick = (i) => {
     setIsSliderShown(current => !current);
-    setSlideIndex(i + 1)
+    setSlideIndex(i)
   }
 
   useEffect(()=> {
@@ -38,7 +39,8 @@ export default function ProjectView() {
 
   return (
     <>
-      <Slider characters={characters} handleClick={handleClick} isSliderShown={isSliderShown} setIsSliderShown={setIsSliderShown} slideIndex={slideIndex} setSlideIndex={setSlideIndex}/>
+      {/* <Slider characters={characters} handleClick={handleClick} isSliderShown={isSliderShown} setIsSliderShown={setIsSliderShown} slideIndex={slideIndex} setSlideIndex={setSlideIndex}/> */}
+      <Swiper characters={characters} handleClick={handleClick} isSliderShown={isSliderShown} setIsSliderShown={setIsSliderShown} slideIndex={slideIndex} setSlideIndex={setSlideIndex}/>
       <div className="characters-container">
         {characters.map((item, i) => (
           <div className="character-card" key={i}>

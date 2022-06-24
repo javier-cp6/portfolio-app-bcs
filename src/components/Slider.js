@@ -1,20 +1,20 @@
 export default function Slider({characters, isSliderShown, setIsSliderShown, slideIndex, setSlideIndex}) {
 
   const nextSlide = () => {
-    if(slideIndex !== characters.length){
+    if(slideIndex !== characters.length - 1){
         setSlideIndex(slideIndex + 1)
     } 
-    else if (slideIndex === characters.length){
-        setSlideIndex(1)
+    else if (slideIndex === characters.length - 1){
+        setSlideIndex(0)
     }
   }
 
   const prevSlide = () => {
-    if(slideIndex !== 1){
+    if(slideIndex !== 0){
         setSlideIndex(slideIndex - 1)
     }
-    else if (slideIndex === 1){
-        setSlideIndex(characters.length)
+    else if (slideIndex === 0){
+        setSlideIndex(characters.length - 1)
     }
   }
 
@@ -28,7 +28,7 @@ export default function Slider({characters, isSliderShown, setIsSliderShown, sli
     <div className="slider">
       <div className="slider-container">
         {characters.map((item, i) => (
-          <div key={i} className={slideIndex === i + 1 ? "slide active-slide" : "slide"}>
+          <div key={i} className={slideIndex === i ? "slide active-slide" : "slide"}>
             <img src={item.img} />
           </div>
         ))}
