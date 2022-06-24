@@ -9,7 +9,7 @@ export default function NavigationBar() {
   const location = useLocation()
   const { pathname } = location;
   const splitLocation = pathname.split("/");
-  console.log(splitLocation)
+  // console.log(splitLocation)
 
   return (
     <div className="nav-wrapper">

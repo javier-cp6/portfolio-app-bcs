@@ -21,7 +21,7 @@
 // }
 
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { getCharacters } from "../services/characterService"
 
 export default function ProjectView() {
@@ -32,6 +32,16 @@ export default function ProjectView() {
   const handleClick = (i) => {
     setIsSliderShown(current => !current);
     setSlideIndex(i + 1)
+  }
+
+  const myRef = useRef([])
+
+  const scrollToSlide = (i) => {
+    console.log(i)
+    console.log(myRef)
+    myRef.current[i].scrollIntoView(
+      { behavior: 'smooth', block: 'start' }
+    )
   }
 
   useEffect(()=> {
@@ -60,16 +70,20 @@ export default function ProjectView() {
 
   return (
     <div className="swiper">
-      <div class="swiper-container">
-        <a href="#slide-1">1</a>
-        <a href="#slide-2">2</a>
+      <div className="swiper-container">
+        <a onClick={() => {scrollToSlide(0)}}>1</a>
+        <a onClick={() => {scrollToSlide(1)}}>2</a>
         <a href="#slide-3">3</a>
         <a href="#slide-4">4</a>
         <a href="#slide-5">5</a>
 
-        <div class="slides">
+        <div className="slides">
           {characters.map((item, i) => (
-            <div id={`slide-${i+1}`}>
+            // <div id={`slide-${i+1}`}>
+            <div ref={(node) => {
+              console.log(node)
+              myRef.current[i] = node
+              }} key={i}>
               <img src={item.img}/>
             </div>
           ))}
